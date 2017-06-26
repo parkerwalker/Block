@@ -6,32 +6,29 @@ $('.button').on('click', makeBox);
 
 $('#putBox').on('click', '.box', blackBox);
 
-$('#putBox').on('click', '.x', removeBox);
-
+$('#putBox').on('click', '#putBox', removeBox);
 }
 
-function randomColor(){
+var randomColor = () => {
 return '#'+(Math.random()*0xFFFFFF<<0).toString(16);
 
 
 }
-function makeBox(){
+var makeBox = () => {
   var $box = $('<p>');
   var $color = randomColor();
   $box.addClass('box');
   $box.css('background-color', $color);
   $('#putBox').append($box);
 
-  var $exit = $('<div>x</div>');
-  $box.addClass('x');
-  $box.append($exit);
+
 }
 
-function blackBox() {
+var blackBox = () => {
 $(this).css('background-color', 'black');
 }
 
-function removeBox(){
+ var removeBox = () => {
   $(this).parent().remove();
   console.log('hello');
 }
